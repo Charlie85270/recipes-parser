@@ -1,8 +1,8 @@
 import _ from "lodash";
 
 import { LANGUAGES } from "../";
-import UnitsEn from "../../db/units_EN.json";
-import UnitsFr from "../../db/units_FR.json";
+import UnitsEn from "../../nlp/units_EN.json";
+import UnitsFr from "../../nlp/units_FR.json";
 import LanguageUtils from "./language";
 
 export default class ConversionsUtils {

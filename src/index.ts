@@ -53,7 +53,7 @@ export default class NutrifactsJs {
     fs.readFileSync(
       path.join(
         __dirname,
-        `/../db/nlp-rules/rules_${LanguageUtils.getLang()}.pegjs`
+        `/../nlp/nlp-rules/rules_${LanguageUtils.getLang()}.pegjs`
       ),
       {
         encoding: "utf8"
