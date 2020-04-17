@@ -6,7 +6,18 @@
 
 recipes-parser.js is a library to extract aliments, units and weights from a text phrase in. The library processing natural language strings and retrieving information from two langage (FR and EN)
 
-Quick example FR: 'une demie cuillère à café de riz'
+Example EN: '1/2 kilogram of chicken'
+
+```json
+result : {
+  "ingredient": "chicken",
+  "unit": "kilogram",
+  "amount": 0.5,
+  "totalFoodQuantity": 500
+}
+```
+
+Example FR: 'une demie cuillère à soupe de riz'
 
 ```json
 result : {
@@ -14,6 +25,17 @@ result : {
   "unit": "cuillère à soupe",
   "amount": 0.5,
   "totalFoodQuantity": 6
+}
+```
+
+Example FR: '70cl d'huile d'olive'
+
+```json
+result : {
+  "ingredient": "huile d'olive",
+  "unit": "cl",
+  "amount": 70,
+  "totalFoodQuantity": 700
 }
 ```
 
@@ -28,20 +50,6 @@ nb : (totalFoodQuantity is in grams)
 \_@param instructions -- The list of instructions. Supports NLP queries (recipeStr)
 
 **getIngredientsFromText**(instructions: string[])
-
-### Installation
-
-```sh
-$ npm install recipes-parser
-```
-
-or
-
-```sh
-$ yarn add recipes-parser
-```
-
----
 
 ## License
 
