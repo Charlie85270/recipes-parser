@@ -1,0 +1,62 @@
+{
+  "name": "recipes-parser",
+  "version": "1.2.0",
+  "description": "A library to parse recipes (string text entry) and exctract aliments, units and weights",
+  "main": "lib/src/index.js",
+  "files": [
+    "lib/**/*"
+  ],
+  "types": "lib/src/index.d.ts",
+  "scripts": {
+    "test": "jest --config jestconfig.json",
+    "build": "tsc && npm run copynlp",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags",
+    "copynlp": "copyfiles -u 1 db/nlp-rules/** lib/db",
+    "start": "npm run build && node lib/src/index.js"
+  },
+  "author": "Charlie Rabiller <rabiller.charlie@gmail.com>",
+  "homepage": "https://github.com/Charlie85270/recipes-parser",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Charlie85270/recipes-parser.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Charlie85270/recipes-parser/issues",
+    "email": "rabiller.charlie@gmail.com"
+  },
+  "keywords": [
+    "food",
+    "nutrition",
+    "nutrition facts",
+    "health",
+    "cooking"
+  ],
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@types/bluebird": "^3.5.29",
+    "@types/jest": "^24.0.23",
+    "@types/lodash": "^4.14.149",
+    "@types/node": "^12.7.5",
+    "@types/pegjs": "^0.10.1",
+    "@types/validator": "^12.0.1",
+    "copyfiles": "^2.1.1",
+    "jest": "^24.9.0",
+    "prettier": "^1.19.1",
+    "ts-jest": "^24.2.0",
+    "tslint": "^5.20.1",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.7.3"
+  },
+  "dependencies": {
+    "fuse.js": "^3.4.6",
+    "lodash": "^4.17.15",
+    "pegjs": "^0.10.0",
+    "reflect-metadata": "^0.1.13"
+  }
+}

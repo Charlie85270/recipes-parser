@@ -1,0 +1,9 @@
+{
+    "extends": ["tslint:recommended", "tslint-config-prettier"],
+    "rules": {
+        "object-literal-sort-keys": false
+    },
+    "linterOptions": {
+      "exclude": ["src/__scripts__/**/*", "src/__tests__/**/*"]
+    }
+}
