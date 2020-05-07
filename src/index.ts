@@ -48,7 +48,7 @@ export interface IInputIngredient {
   quantity?: number;
 }
 
-export default class NutrifactsJs {
+export default class RecipesParser {
   private nlpParser: peg.Parser = peg.generate(
     fs.readFileSync(
       path.join(
@@ -61,7 +61,10 @@ export default class NutrifactsJs {
     )
   );
 
-  public getIngredientsFromText(recipeInstructions: string[]): IRecipeResult[] {
+  public getIngredientsFromText(
+    recipeInstructions: string[],
+    returnUnitKey?: boolean
+  ): IRecipeResult[] {
     const output: IRecipeResult = {
       unknown: {}
     };
@@ -76,9 +79,7 @@ export default class NutrifactsJs {
         .replace("¼", "1/4")
         .replace("¾", "3/4")
         .replace("⅔", "2/3");
-      const parts = this.nlpParser.parse(
-        LanguageUtils.removeAccentuation(recipeStr)
-      );
+      const parts = this.nlpParser.parse(recipeStr);
 
       if (
         typeof parts.amount === "undefined" ||
@@ -103,7 +104,11 @@ export default class NutrifactsJs {
         parts.amount = ConversionsUtils.normalizeAmount(parts.amount);
         totalFoodQuantity = parts.amount;
 
-        // precise unit
+        // get unit key match
+        if (returnUnitKey) {
+          parts.unit = ConversionsUtils.getUnitKey(parts.unit);
+        }
+
         if (parts.unit) {
           if (!ConversionsUtils.isGrams(parts.unit)) {
             totalFoodQuantity = ConversionsUtils.convertToGrams(
@@ -115,7 +120,6 @@ export default class NutrifactsJs {
         } else {
           // TODO calculate average grams of product
         }
-
         output.result = {
           precise: {
             container: parts.container,

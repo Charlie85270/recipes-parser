@@ -28,6 +28,7 @@ amount
   / integer
   / few
   / couple
+  / ecart
 
 container
   = container_wrapper_start? (ws+)? amount:amount (ws+)? unit:unit (ws+)? container_wrapper_end? {
@@ -107,6 +108,10 @@ couple
   = $(article? " "? "couple"i)
   / $(article? " "? "paire"i)
 
+ecart 
+ = $(integer? " "? "a" integer?)
+  / $(integer? " "? "à" integer?)
+
 few
   = $(article? ' '? 'peu'i)
 
@@ -138,10 +143,10 @@ generic
   / cuillereacafe
 
 coupe
-  = 'coupes'i
-  / 'coupe'i
-  / 'cp.'i
-  / 'cp'i
+  = 'coupes'
+  / 'coupe'
+  / 'cp.'
+  / 'cp'
 
 tasse
   = 'tasses'i
@@ -155,10 +160,10 @@ bol
 
 
 bouteille
-  = 'bouteilles'i
-  / 'bouteille'i
-  / 'btl.'i
-  / 'btl'i
+  = 'bouteilles'
+  / 'bouteille'
+  / 'btl.'
+  / 'btl'
 
 
 fluid_ounce
@@ -209,7 +214,13 @@ quart
 cuillereasoupe
   = 'cuilleres a soupe'i
   /'cuillere a soupe'i
+  / 'cuillère à soupe'i
+  / 'cuillères à soupe'i
+  /'c.à s.'i
   / 'cas.'i
+  / 'c à s'i
+  / 'c a s'i
+   
   /'cuillere a soupe'i
   / 'tbs.'i
   / 'tbs'i
@@ -221,6 +232,19 @@ cuillereacafe
   / 'cuillere a cafe'i
   / 'cuillere a cafe'i
   / 'cuillère a cafe'i
+  / 'cuillères à cafe'i
+  / 'cuillére à cafe'i
+  / 'cuillère à cafe'
+  /'c.à c.'i
+  /'c.à c'i
+  /'c.a c'i
+  / 'c.à café'i
+  /'c.a café'i
+  /'c.à cafe'i
+  /'c.a cafe'i
+  / 'c à c'i
+  
+  / 'c a c'i
   / 'cac.'
   / 'cac'
   / 'c'
@@ -299,8 +323,13 @@ imprecise_unit
   / eclat
   / brin
   / feuille
+  / sachet
+  / dose
  
-
+ sachet
+  = 'sachet'i
+  / 'sachets'i
+  
 zeste
   = 'élan'i
   / 'zeste'i
@@ -309,10 +338,15 @@ zeste
 poignee
   = 'poignées'i
   / 'poignée'i
-
+  / 'poignee'i
+  / 'poignees'i
+  / 'poigne'i
 pincee
   = 'pincées'i
   / 'pincée'i
+  / 'pincee'i
+  / 'pincees'i
+  / 'pince'i
 
 touche
   = 'touches'i
@@ -339,6 +373,10 @@ eclat
 brin
   = 'brins'i
   / 'brin'i
+
+dose
+  = 'doses'i
+  / 'dose'i
 
 feuille
   = 'feuilles'i

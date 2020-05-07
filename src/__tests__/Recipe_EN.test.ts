@@ -1,7 +1,7 @@
-import NutrifactsJs, { IRecipeResult } from "..";
+import RecipesParser, { IRecipeResult } from "..";
 
 process.env.LANG = "EN";
-const lib = new NutrifactsJs();
+const lib = new RecipesParser();
 
 test("Get nutrients in recipe - simple string (NLP)", async () => {
   const recipe: string[] = ["20gr of sugar"];

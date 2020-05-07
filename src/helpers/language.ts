@@ -6,7 +6,7 @@ export default class LanguageUtils {
    * Returns the language to be used.
    */
   public static getLang(): LANGUAGES {
-    return (process.env.LANG as LANGUAGES) || LANGUAGES.EN;
+    return (process.env.LANG as LANGUAGES) || LANGUAGES.FR;
   }
 
   /**

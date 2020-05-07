@@ -4,6 +4,7 @@ import { LANGUAGES } from "../";
 import UnitsEn from "../../nlp/units_EN.json";
 import UnitsFr from "../../nlp/units_FR.json";
 import LanguageUtils from "./language";
+import { globalUnit } from "./models_FR";
 
 export default class ConversionsUtils {
   /**
@@ -16,6 +17,19 @@ export default class ConversionsUtils {
       case LANGUAGES.FR:
         return UnitsFr;
     }
+  }
+
+  public static getUnitKey(unit: string): string | undefined {
+    let returnUnit = unit;
+
+    for (let i = 0; i < Object.keys(globalUnit).length; i++) {
+      if (Object.values(globalUnit)[i].includes(unit)) {
+        returnUnit = Object.keys(globalUnit)[i];
+        i = Object.keys(globalUnit).length;
+      }
+    }
+
+    return returnUnit;
   }
 
   /**
