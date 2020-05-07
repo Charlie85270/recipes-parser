@@ -68,8 +68,10 @@ To change lang just set process.env.lang to 'EN' or 'FR'. Default is 'FR'
 
 import RecipesParser from 'recipes-parser';
 
+```
 const parser = new RecipesParser();
 const results = parser.getIngredientsFromText(['50 grammes de chocolat']);
+```
 
 \_@param instructions -- The list of instructions. Supports NLP queries (recipeStr)
 
