@@ -60,15 +60,11 @@ nb : (totalFoodQuantity is in grams)
 
 # API
 
-## Langage
-
-To change lang just set process.env.lang to 'EN' or 'FR'. Default is 'FR'
-
 ## Returns the list of ingredients ,weights and units from a given list of instruction.
 
 ```
 import RecipesParser from 'recipes-parser';
-const parser = new RecipesParser();
+const parser = new RecipesParser('FR');
 const results = parser.getIngredientsFromText(['50 grammes de chocolat']);
 ```
 

@@ -10,8 +10,8 @@ export default class ConversionsUtils {
   /**
    * Returns a list of units for the configured language.
    */
-  public static getUnits(): any {
-    switch (LanguageUtils.getLang()) {
+  public static getUnits(lang: string): any {
+    switch (lang) {
       case LANGUAGES.EN:
         return UnitsEn;
       case LANGUAGES.FR:
@@ -36,81 +36,91 @@ export default class ConversionsUtils {
    * Returns TRUE if the given unit is milligrams.
    * @param unit The unit to be checked.
    */
-  public static isMilligrams(unit: string): boolean {
-    return this.getUnits().nominalUnits.milligrams.indexOf(unit) > -1;
+  public static isMilligrams(lang: string, unit: string): boolean {
+    return this.getUnits(lang).nominalUnits.milligrams.indexOf(unit) > -1;
   }
 
   /**
    * Returns TRUE if the given unit is grams.
    * @param unit The unit to be checked.
    */
-  public static isGrams(unit: string): boolean {
-    return this.getUnits().nominalUnits.grams.indexOf(unit) > -1;
+  public static isGrams(lang: string, unit: string): boolean {
+    return this.getUnits(lang).nominalUnits.grams.indexOf(unit) > -1;
   }
 
   /**
    * Returns TRUE if the given unit is kilograms.
    * @param unit The unit to be checked.
    */
-  public static isKiloGrams(unit: string): boolean {
-    return this.getUnits().nominalUnits.kilograms.indexOf(unit) > -1;
+  public static isKiloGrams(lang: string, unit: string): boolean {
+    return this.getUnits(lang).nominalUnits.kilograms.indexOf(unit) > -1;
   }
 
   /**
    * Returns TRUE if the given unit is milliliters.
    * @param unit The unit to be checked.
    */
-  public static isMilliliters(unit: string): boolean {
-    return this.getUnits().nominalUnits.milliliters.indexOf(unit) > -1;
+  public static isMilliliters(lang: string, unit: string): boolean {
+    return this.getUnits(lang).nominalUnits.milliliters.indexOf(unit) > -1;
   }
 
   /**
    * Returns TRUE if the given unit is centiliters.
    * @param unit The unit to be checked.
    */
-  public static isCentiliters(unit: string): boolean {
-    return this.getUnits().nominalUnits.centiliters.indexOf(unit) > -1;
+  public static isCentiliters(lang: string, unit: string): boolean {
+    return this.getUnits(lang).nominalUnits.centiliters.indexOf(unit) > -1;
   }
 
   /**
    * Returns TRUE if the given unit is liters.
    * @param unit The unit to be checked.
    */
-  public static isLiters(unit: string): boolean {
-    return this.getUnits().nominalUnits.liters.indexOf(unit) > -1;
+  public static isLiters(lang: string, unit: string): boolean {
+    return this.getUnits(lang).nominalUnits.liters.indexOf(unit) > -1;
   }
 
   /**
    * Tries to match the nearest unit type from a given input.
    * @param input The unit to look up.
    */
-  public static getNearestUnitType(input: string): string {
-    for (const i in this.getUnits().unitTypes) {
-      if (!this.getUnits().unitTypes.hasOwnProperty(i)) {
+  public static getNearestUnitType(lang: string, input: string): string {
+    for (const i in this.getUnits(lang).unitTypes) {
+      if (!this.getUnits(lang).unitTypes.hasOwnProperty(i)) {
         continue;
       }
 
       if (
-        input.indexOf(this.getUnits().unitTypes[i]) > -1 ||
-        this.getUnits().unitTypes[i].indexOf(input) > -1
+        input.indexOf(this.getUnits(lang).unitTypes[i]) > -1 ||
+        this.getUnits(lang).unitTypes[i].indexOf(input) > -1
       ) {
-        return this.getUnits().unitTypes[i];
+        return this.getUnits(lang).unitTypes[i];
       }
     }
 
-    return this.getUnits().defaulUnitType;
+    return this.getUnits(lang).defaulUnitType;
   }
 
   /**
    * Normalizes a given amount.
    * @param val The amount to be normalized.
    */
-  public static normalizeAmount(val: number | string): number {
+  public static normalizeAmount(lang: string, val: number | string): number {
     let out;
 
     // Normalizing numeric word to number
-    if (this.getUnits().wordNumbers.hasOwnProperty(val)) {
-      out = (this.getUnits().wordNumbers as any)[val];
+    if (this.getUnits(lang).wordNumbers.hasOwnProperty(val)) {
+      out = (this.getUnits(lang).wordNumbers as any)[val];
+    }
+
+    // Summing up moyen amounts (2-3 oeufs, 4-5 grammes, ...)
+    const moyenRec = /(\d)?\-(\d)/gim;
+    const matchesMoyen = moyenRec.exec(String(val));
+    console.log(matchesMoyen);
+    if (matchesMoyen) {
+      if (matchesMoyen[1] && matchesMoyen[2]) {
+        out = (Number(matchesMoyen[1]) + Number(matchesMoyen[2])) / 2;
+      }
     }
 
     // Summing up mixed amounts (integer and fractions)
@@ -138,44 +148,38 @@ export default class ConversionsUtils {
    * @param val The source value.
    */
   public static convertToGrams(
+    lang: string,
     unit: string,
     type: string,
     val: number | string
   ): number {
     unit = unit.replace(/\W/g, "");
 
-    unit = (this.getUnits().pluralsMap as any)[unit] || unit;
+    unit = (this.getUnits(lang).pluralsMap as any)[unit] || unit;
 
-    if (ConversionsUtils.isMilliliters(unit)) {
+    if (ConversionsUtils.isMilliliters(lang, unit)) {
       return Number(val);
     }
 
-    if (ConversionsUtils.isCentiliters(unit)) {
+    if (ConversionsUtils.isCentiliters(lang, unit)) {
       return Number(val) * 10;
     }
 
-    if (ConversionsUtils.isLiters(unit)) {
+    if (ConversionsUtils.isLiters(lang, unit)) {
       return Number(val) * 1000;
     }
-    if (ConversionsUtils.isKiloGrams(unit)) {
+    if (ConversionsUtils.isKiloGrams(lang, unit)) {
       return Number(val) * 1000;
     }
 
-    if (!(this.getUnits().unitMeasuresInGrams as any)[unit]) {
+    if (!(this.getUnits(lang).unitMeasuresInGrams as any)[unit]) {
       return -1;
     }
 
-    if (!(this.getUnits().unitMeasuresInGrams as any)[unit][type]) {
-      type = this.getUnits().defaulUnitType;
+    if (!(this.getUnits(lang).unitMeasuresInGrams as any)[unit][type]) {
+      type = this.getUnits(lang).defaulUnitType;
     }
 
-    return +(this.getUnits().unitMeasuresInGrams as any)[unit][type] * +val; //
-  }
-
-  /**
-   * Returns the default quantity measure.
-   */
-  public static get defaultQuantityMeasure(): string {
-    return this.getUnits().nominalUnits.grams[0];
+    return +(this.getUnits(lang).unitMeasuresInGrams as any)[unit][type] * +val; //
   }
 }

@@ -1,7 +1,6 @@
 import RecipesParser, { IRecipeResult } from "..";
 
-process.env.LANG = "EN";
-const lib = new RecipesParser();
+const lib = new RecipesParser("EN");
 
 test("Get nutrients in recipe - simple string (NLP)", async () => {
   const recipe: string[] = ["20gr of sugar"];

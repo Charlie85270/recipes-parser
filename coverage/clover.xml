@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1588861389962" clover="3.2.0">
-  <project timestamp="1588861389962" name="All files">
-    <metrics statements="97" coveredstatements="85" conditionals="55" coveredconditionals="45" methods="20" coveredmethods="17" elements="172" coveredelements="147" complexity="0" loc="97" ncloc="97" packages="2" files="4" classes="4"/>
+<coverage generated="1588940437796" clover="3.2.0">
+  <project timestamp="1588940437797" name="All files">
+    <metrics statements="97" coveredstatements="87" conditionals="59" coveredconditionals="49" methods="17" coveredmethods="16" elements="173" coveredelements="152" complexity="0" loc="97" ncloc="97" packages="2" files="3" classes="3"/>
     <package name="src">
       <metrics statements="38" coveredstatements="33" conditionals="18" coveredconditionals="15" methods="6" coveredmethods="6"/>
       <file name="index.ts" path="/Users/crabiller/projets/perso/recipes-parser/src/index.ts">
@@ -11,106 +11,103 @@
         <line num="3" count="2" type="stmt"/>
         <line num="4" count="2" type="stmt"/>
         <line num="6" count="2" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
-        <line num="28" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="27" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="28" count="2" type="stmt"/>
         <line num="29" count="2" type="stmt"/>
-        <line num="30" count="2" type="stmt"/>
-        <line num="33" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="32" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="33" count="2" type="stmt"/>
         <line num="34" count="2" type="stmt"/>
-        <line num="35" count="2" type="stmt"/>
-        <line num="38" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="37" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="38" count="2" type="stmt"/>
         <line num="39" count="2" type="stmt"/>
         <line num="40" count="2" type="stmt"/>
         <line num="41" count="2" type="stmt"/>
-        <line num="42" count="2" type="stmt"/>
+        <line num="50" count="2" type="stmt"/>
         <line num="51" count="2" type="stmt"/>
-        <line num="52" count="2" type="stmt"/>
-        <line num="68" count="21" type="stmt"/>
-        <line num="73" count="21" type="stmt"/>
-        <line num="76" count="21" type="stmt"/>
-        <line num="82" count="21" type="stmt"/>
-        <line num="84" count="21" type="cond" truecount="1" falsecount="1"/>
-        <line num="92" count="0" type="stmt"/>
-        <line num="93" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="59" count="2" type="stmt"/>
+        <line num="65" count="24" type="stmt"/>
+        <line num="70" count="24" type="stmt"/>
+        <line num="73" count="24" type="stmt"/>
+        <line num="79" count="24" type="stmt"/>
+        <line num="81" count="24" type="cond" truecount="1" falsecount="1"/>
+        <line num="89" count="0" type="stmt"/>
+        <line num="90" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="91" count="0" type="stmt"/>
         <line num="94" count="0" type="stmt"/>
-        <line num="97" count="0" type="stmt"/>
-        <line num="102" count="0" type="stmt"/>
-        <line num="104" count="21" type="stmt"/>
-        <line num="105" count="21" type="stmt"/>
-        <line num="108" count="21" type="cond" truecount="2" falsecount="0"/>
-        <line num="109" count="20" type="stmt"/>
-        <line num="112" count="21" type="cond" truecount="2" falsecount="0"/>
-        <line num="113" count="16" type="cond" truecount="2" falsecount="0"/>
-        <line num="114" count="11" type="stmt"/>
-        <line num="123" count="21" type="stmt"/>
-        <line num="132" count="21" type="stmt"/>
+        <line num="99" count="0" type="stmt"/>
+        <line num="101" count="24" type="stmt"/>
+        <line num="105" count="24" type="stmt"/>
+        <line num="108" count="24" type="cond" truecount="2" falsecount="0"/>
+        <line num="109" count="23" type="stmt"/>
+        <line num="112" count="24" type="cond" truecount="2" falsecount="0"/>
+        <line num="113" count="19" type="cond" truecount="2" falsecount="0"/>
+        <line num="114" count="14" type="stmt"/>
+        <line num="127" count="24" type="stmt"/>
+        <line num="136" count="24" type="stmt"/>
       </file>
     </package>
     <package name="src.helpers">
-      <metrics statements="59" coveredstatements="52" conditionals="37" coveredconditionals="30" methods="14" coveredmethods="11"/>
+      <metrics statements="59" coveredstatements="54" conditionals="41" coveredconditionals="34" methods="11" coveredmethods="10"/>
       <file name="conversions.ts" path="/Users/crabiller/projets/perso/recipes-parser/src/helpers/conversions.ts">
-        <metrics statements="54" coveredstatements="48" conditionals="35" coveredconditionals="29" methods="12" coveredmethods="10"/>
+        <metrics statements="58" coveredstatements="53" conditionals="41" coveredconditionals="34" methods="11" coveredmethods="10"/>
         <line num="3" count="2" type="stmt"/>
         <line num="4" count="2" type="stmt"/>
         <line num="5" count="2" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
         <line num="7" count="2" type="stmt"/>
         <line num="9" count="2" type="stmt"/>
-        <line num="14" count="489" type="stmt"/>
+        <line num="14" count="626" type="stmt"/>
         <line num="16" count="2" type="stmt"/>
-        <line num="18" count="487" type="stmt"/>
-        <line num="23" count="20" type="stmt"/>
-        <line num="25" count="20" type="stmt"/>
-        <line num="26" count="369" type="cond" truecount="2" falsecount="0"/>
-        <line num="27" count="15" type="stmt"/>
-        <line num="28" count="15" type="stmt"/>
-        <line num="32" count="20" type="stmt"/>
+        <line num="18" count="624" type="stmt"/>
+        <line num="23" count="23" type="stmt"/>
+        <line num="25" count="23" type="stmt"/>
+        <line num="26" count="397" type="cond" truecount="2" falsecount="0"/>
+        <line num="27" count="18" type="stmt"/>
+        <line num="28" count="18" type="stmt"/>
+        <line num="32" count="23" type="stmt"/>
         <line num="40" count="0" type="stmt"/>
-        <line num="48" count="16" type="stmt"/>
-        <line num="56" count="9" type="stmt"/>
-        <line num="64" count="11" type="stmt"/>
-        <line num="72" count="11" type="stmt"/>
-        <line num="80" count="10" type="stmt"/>
-        <line num="88" count="11" type="stmt"/>
-        <line num="89" count="120" type="cond" truecount="1" falsecount="1"/>
+        <line num="48" count="19" type="stmt"/>
+        <line num="56" count="12" type="stmt"/>
+        <line num="64" count="14" type="stmt"/>
+        <line num="72" count="14" type="stmt"/>
+        <line num="80" count="13" type="stmt"/>
+        <line num="88" count="14" type="stmt"/>
+        <line num="89" count="154" type="cond" truecount="1" falsecount="1"/>
         <line num="90" count="0" type="stmt"/>
-        <line num="93" count="120" type="cond" truecount="2" falsecount="0"/>
-        <line num="97" count="2" type="stmt"/>
-        <line num="101" count="9" type="stmt"/>
-        <line num="112" count="21" type="cond" truecount="2" falsecount="0"/>
+        <line num="93" count="154" type="cond" truecount="2" falsecount="0"/>
+        <line num="97" count="3" type="stmt"/>
+        <line num="101" count="11" type="stmt"/>
+        <line num="112" count="24" type="cond" truecount="2" falsecount="0"/>
         <line num="113" count="2" type="stmt"/>
-        <line num="117" count="21" type="stmt"/>
-        <line num="118" count="21" type="stmt"/>
-        <line num="119" count="21" type="cond" truecount="2" falsecount="0"/>
-        <line num="120" count="2" type="cond" truecount="2" falsecount="3"/>
-        <line num="121" count="0" type="stmt"/>
-        <line num="123" count="2" type="stmt"/>
-        <line num="127" count="21" type="cond" truecount="2" falsecount="0"/>
-        <line num="128" count="17" type="stmt"/>
-        <line num="131" count="21" type="stmt"/>
-        <line num="145" count="11" type="stmt"/>
-        <line num="147" count="11" type="cond" truecount="2" falsecount="0"/>
-        <line num="149" count="11" type="cond" truecount="1" falsecount="1"/>
-        <line num="150" count="0" type="stmt"/>
-        <line num="153" count="11" type="cond" truecount="2" falsecount="0"/>
-        <line num="154" count="1" type="stmt"/>
-        <line num="157" count="10" type="cond" truecount="2" falsecount="0"/>
-        <line num="158" count="1" type="stmt"/>
-        <line num="160" count="9" type="cond" truecount="2" falsecount="0"/>
-        <line num="161" count="1" type="stmt"/>
-        <line num="164" count="8" type="cond" truecount="2" falsecount="0"/>
-        <line num="165" count="3" type="stmt"/>
-        <line num="168" count="5" type="cond" truecount="1" falsecount="1"/>
-        <line num="169" count="0" type="stmt"/>
-        <line num="172" count="5" type="stmt"/>
-        <line num="179" count="0" type="stmt"/>
-      </file>
-      <file name="language.ts" path="/Users/crabiller/projets/perso/recipes-parser/src/helpers/language.ts">
-        <metrics statements="4" coveredstatements="3" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="1"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="9" count="491" type="cond" truecount="1" falsecount="1"/>
-        <line num="19" count="0" type="stmt"/>
+        <line num="117" count="24" type="stmt"/>
+        <line num="118" count="24" type="stmt"/>
+        <line num="119" count="24" type="stmt"/>
+        <line num="120" count="24" type="cond" truecount="2" falsecount="0"/>
+        <line num="121" count="1" type="cond" truecount="3" falsecount="1"/>
+        <line num="122" count="1" type="stmt"/>
+        <line num="127" count="24" type="stmt"/>
+        <line num="128" count="24" type="stmt"/>
+        <line num="129" count="24" type="cond" truecount="2" falsecount="0"/>
+        <line num="130" count="2" type="cond" truecount="2" falsecount="3"/>
+        <line num="131" count="0" type="stmt"/>
+        <line num="133" count="2" type="stmt"/>
+        <line num="137" count="24" type="cond" truecount="2" falsecount="0"/>
+        <line num="138" count="19" type="stmt"/>
+        <line num="141" count="24" type="stmt"/>
+        <line num="156" count="14" type="stmt"/>
+        <line num="158" count="14" type="cond" truecount="2" falsecount="0"/>
+        <line num="160" count="14" type="cond" truecount="1" falsecount="1"/>
+        <line num="161" count="0" type="stmt"/>
+        <line num="164" count="14" type="cond" truecount="2" falsecount="0"/>
+        <line num="165" count="1" type="stmt"/>
+        <line num="168" count="13" type="cond" truecount="2" falsecount="0"/>
+        <line num="169" count="1" type="stmt"/>
+        <line num="171" count="12" type="cond" truecount="2" falsecount="0"/>
+        <line num="172" count="1" type="stmt"/>
+        <line num="175" count="11" type="cond" truecount="2" falsecount="0"/>
+        <line num="176" count="3" type="stmt"/>
+        <line num="179" count="8" type="cond" truecount="1" falsecount="1"/>
+        <line num="180" count="0" type="stmt"/>
+        <line num="183" count="8" type="stmt"/>
       </file>
       <file name="models_FR.ts" path="/Users/crabiller/projets/perso/recipes-parser/src/helpers/models_FR.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>

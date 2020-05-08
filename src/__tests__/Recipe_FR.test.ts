@@ -1,7 +1,6 @@
 import RecipesParser, { IRecipeResult } from "..";
 
-process.env.LANG = "FR";
-const lib = new RecipesParser();
+const lib = new RecipesParser("FR");
 
 test("Test recipe instructions - simple string (NLP)", async () => {
   const recipe: string[] = ["une demie cuillère à soupe de riz"];
@@ -325,6 +324,57 @@ test("Test recipe instructions - simple string (NLP)", async () => {
     expect(result[0].result.precise.ingredient).toEqual("chorizo");
     expect(result[0].result.precise.unit).toEqual(undefined);
     expect(result[0].result.precise.amount).toEqual(0.25);
+  } else {
+    throw new Error("fail");
+  }
+});
+test("Test recipe instructions - simple string (NLP)", async () => {
+  const recipe: string[] = ["2 c. à soupe de graines de chia"];
+  const result: IRecipeResult[] = await lib.getIngredientsFromText(
+    recipe,
+    true
+  );
+  expect(result).not.toBeUndefined();
+  if (result[0] && result[0].result) {
+    expect(result[0].result.precise.ingredient).toEqual("graines de chia");
+    expect(result[0].result.precise.unit).toEqual("cuillereasoupe");
+    expect(result[0].result.precise.amount).toEqual(2);
+  } else {
+    throw new Error("fail");
+  }
+});
+
+test("Test recipe instructions - simple string (NLP)", async () => {
+  const recipe: string[] = ["3 c. à soupe d’huile de coco + pour le moule"];
+  const result: IRecipeResult[] = await lib.getIngredientsFromText(
+    recipe,
+    true
+  );
+  expect(result).not.toBeUndefined();
+  if (result[0] && result[0].result) {
+    expect(result[0].result.precise.ingredient).toEqual(
+      "d’huile de coco + pour le moule"
+    );
+    expect(result[0].result.precise.unit).toEqual("cuillereasoupe");
+    expect(result[0].result.precise.amount).toEqual(3);
+  } else {
+    throw new Error("fail");
+  }
+});
+
+test("Test recipe instructions - simple string (NLP)", async () => {
+  const recipe: string[] = ["2-3 c. à café Fond de veau en poudre"];
+  const result: IRecipeResult[] = await lib.getIngredientsFromText(
+    recipe,
+    true
+  );
+  expect(result).not.toBeUndefined();
+  if (result[0] && result[0].result) {
+    expect(result[0].result.precise.ingredient).toEqual(
+      "Fond de veau en poudre"
+    );
+    expect(result[0].result.precise.unit).toEqual("cuillereacafe");
+    expect(result[0].result.precise.amount).toEqual(2.5);
   } else {
     throw new Error("fail");
   }

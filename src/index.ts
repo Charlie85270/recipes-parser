@@ -4,7 +4,6 @@ import * as path from "path";
 import peg from "pegjs";
 
 import ConversionsUtils from "./helpers/conversions";
-import LanguageUtils from "./helpers/language";
 
 export interface IRecipeResult {
   result?: {
@@ -51,15 +50,13 @@ export interface IInputIngredient {
 export default class RecipesParser {
   private nlpParser: peg.Parser = peg.generate(
     fs.readFileSync(
-      path.join(
-        __dirname,
-        `/../nlp/nlp-rules/rules_${LanguageUtils.getLang()}.pegjs`
-      ),
+      path.join(__dirname, `/../nlp/nlp-rules/rules_${this.langage}.pegjs`),
       {
         encoding: "utf8"
       }
     )
   );
+  constructor(private langage: "FR" | "EN") {}
 
   public getIngredientsFromText(
     recipeInstructions: string[],
@@ -101,7 +98,10 @@ export default class RecipesParser {
         };
         return output;
       } else {
-        parts.amount = ConversionsUtils.normalizeAmount(parts.amount);
+        parts.amount = ConversionsUtils.normalizeAmount(
+          this.langage,
+          parts.amount
+        );
         totalFoodQuantity = parts.amount;
 
         // get unit key match
@@ -110,10 +110,14 @@ export default class RecipesParser {
         }
 
         if (parts.unit) {
-          if (!ConversionsUtils.isGrams(parts.unit)) {
+          if (!ConversionsUtils.isGrams(this.langage, parts.unit)) {
             totalFoodQuantity = ConversionsUtils.convertToGrams(
+              this.langage,
               parts.unit,
-              ConversionsUtils.getNearestUnitType(parts.ingredient),
+              ConversionsUtils.getNearestUnitType(
+                this.langage,
+                parts.ingredient
+              ),
               parts.amount
             );
           }

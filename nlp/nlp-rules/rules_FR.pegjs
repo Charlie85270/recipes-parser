@@ -64,6 +64,8 @@ article
 space
   = " "
 
+
+
 ingredient
   = phrase
 
@@ -81,6 +83,7 @@ float
 
 mixed_number
   = $(integer preposition fraction)
+  / $(integer preposition integer)
   / $(integer space fraction)
   / $(integer unit fraction)
 
@@ -216,11 +219,20 @@ cuillereasoupe
   /'cuillere a soupe'i
   / 'cuillère à soupe'i
   / 'cuillères à soupe'i
+  / 'c. à soupe'i
+  / 'c. a soupe'i
+  / 'c.à soupe'i
+  / 'c.a soupe'i
+  /'c. à soupe'i
+  /'c a soupe'i
+  /'c. a soupe'i
+  /'c. à soupe'i
+  /'c a soupe'i
+  /' ca soupe'i
   /'c.à s.'i
   / 'cas.'i
   / 'c à s'i
   / 'c a s'i
-   
   /'cuillere a soupe'i
   / 'tbs.'i
   / 'tbs'i
@@ -234,7 +246,19 @@ cuillereacafe
   / 'cuillère a cafe'i
   / 'cuillères à cafe'i
   / 'cuillére à cafe'i
-  / 'cuillère à cafe'
+  / 'cuillère à cafe'i
+  / 'c. à café'i
+  / 'c. a café'i
+  / 'c.à café'i
+  / 'c.a café'i
+  / 'c.a cafe'i
+  / 'c.à café'i
+  /'c. à cafe'i
+  /'c a cafe'i
+  /'c. a café'i
+  /'c. a café'i
+  /'c a café'i
+  /'c a cafe'i
   /'c.à c.'i
   /'c.à c'i
   /'c.a c'i
@@ -243,7 +267,6 @@ cuillereacafe
   /'c.à cafe'i
   /'c.a cafe'i
   / 'c à c'i
-  
   / 'c a c'i
   / 'cac.'
   / 'cac'
