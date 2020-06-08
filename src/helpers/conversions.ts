@@ -116,7 +116,7 @@ export default class ConversionsUtils {
     // Summing up moyen amounts (2-3 oeufs, 4-5 grammes, ...)
     const moyenRec = /(\d)?\-(\d)/gim;
     const matchesMoyen = moyenRec.exec(String(val));
-    console.log(matchesMoyen);
+
     if (matchesMoyen) {
       if (matchesMoyen[1] && matchesMoyen[2]) {
         out = (Number(matchesMoyen[1]) + Number(matchesMoyen[2])) / 2;
