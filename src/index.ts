@@ -9,7 +9,6 @@ export interface IRecipeResult {
   result?: {
     precise: {
       container: string;
-      totalFoodQuantity: number;
       unit: number;
       amount: string;
       ingredient: string;
@@ -48,6 +47,8 @@ export interface IInputIngredient {
 }
 
 export default class RecipesParser {
+  constructor(private langage: "FR" | "EN") {}
+
   private nlpParser: peg.Parser = peg.generate(
     fs.readFileSync(
       path.join(__dirname, `/../nlp/nlp-rules/rules_${this.langage}.pegjs`),
@@ -56,7 +57,6 @@ export default class RecipesParser {
       }
     )
   );
-  constructor(private langage: "FR" | "EN") {}
 
   public getIngredientsFromText(
     recipeInstructions: string[],
@@ -68,8 +68,6 @@ export default class RecipesParser {
 
     // Parse and normalize the ingredients
     return _.map(recipeInstructions, (instruction: string) => {
-      let totalFoodQuantity: number;
-
       const recipeStr = instruction
         .replace("½", "1/2")
         .replace("⅓", "1/3")
@@ -82,10 +80,6 @@ export default class RecipesParser {
         typeof parts.amount === "undefined" ||
         typeof parts.ingredient === "undefined"
       ) {
-        /*
-              TODO: When the unit is not specified it means that a whole ingredient has been provided (1 banana etc..).
-              In this case the algorithm should get the average grams of the given ingredient.
-            */
         const unknownReasons = [UNKNOWN_REASONS.PARSING];
         if (!parts.amount) {
           unknownReasons.push(UNKNOWN_REASONS.PARSING_AMOUNT);
@@ -102,32 +96,15 @@ export default class RecipesParser {
           this.langage,
           parts.amount
         );
-        totalFoodQuantity = parts.amount;
 
         // get unit key match
         if (returnUnitKey) {
           parts.unit = ConversionsUtils.getUnitKey(parts.unit);
         }
 
-        if (parts.unit) {
-          if (!ConversionsUtils.isGrams(this.langage, parts.unit)) {
-            totalFoodQuantity = ConversionsUtils.convertToGrams(
-              this.langage,
-              parts.unit,
-              ConversionsUtils.getNearestUnitType(
-                this.langage,
-                parts.ingredient
-              ),
-              parts.amount
-            );
-          }
-        } else {
-          // TODO calculate average grams of product
-        }
         output.result = {
           precise: {
             container: parts.container,
-            totalFoodQuantity,
             unit: parts.unit,
             amount: parts.amount,
             ingredient: parts.ingredient

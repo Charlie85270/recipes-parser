@@ -3,7 +3,6 @@ import _ from "lodash";
 import { LANGUAGES } from "../";
 import UnitsEn from "../../nlp/units_EN.json";
 import UnitsFr from "../../nlp/units_FR.json";
-import LanguageUtils from "./language";
 import { globalUnit } from "./models_FR";
 
 export default class ConversionsUtils {
@@ -19,6 +18,9 @@ export default class ConversionsUtils {
     }
   }
 
+  /**
+   * Returns the key who has match the result
+   */
   public static getUnitKey(unit: string): string | undefined {
     let returnUnit = unit;
 
@@ -30,75 +32,6 @@ export default class ConversionsUtils {
     }
 
     return returnUnit;
-  }
-
-  /**
-   * Returns TRUE if the given unit is milligrams.
-   * @param unit The unit to be checked.
-   */
-  public static isMilligrams(lang: string, unit: string): boolean {
-    return this.getUnits(lang).nominalUnits.milligrams.indexOf(unit) > -1;
-  }
-
-  /**
-   * Returns TRUE if the given unit is grams.
-   * @param unit The unit to be checked.
-   */
-  public static isGrams(lang: string, unit: string): boolean {
-    return this.getUnits(lang).nominalUnits.grams.indexOf(unit) > -1;
-  }
-
-  /**
-   * Returns TRUE if the given unit is kilograms.
-   * @param unit The unit to be checked.
-   */
-  public static isKiloGrams(lang: string, unit: string): boolean {
-    return this.getUnits(lang).nominalUnits.kilograms.indexOf(unit) > -1;
-  }
-
-  /**
-   * Returns TRUE if the given unit is milliliters.
-   * @param unit The unit to be checked.
-   */
-  public static isMilliliters(lang: string, unit: string): boolean {
-    return this.getUnits(lang).nominalUnits.milliliters.indexOf(unit) > -1;
-  }
-
-  /**
-   * Returns TRUE if the given unit is centiliters.
-   * @param unit The unit to be checked.
-   */
-  public static isCentiliters(lang: string, unit: string): boolean {
-    return this.getUnits(lang).nominalUnits.centiliters.indexOf(unit) > -1;
-  }
-
-  /**
-   * Returns TRUE if the given unit is liters.
-   * @param unit The unit to be checked.
-   */
-  public static isLiters(lang: string, unit: string): boolean {
-    return this.getUnits(lang).nominalUnits.liters.indexOf(unit) > -1;
-  }
-
-  /**
-   * Tries to match the nearest unit type from a given input.
-   * @param input The unit to look up.
-   */
-  public static getNearestUnitType(lang: string, input: string): string {
-    for (const i in this.getUnits(lang).unitTypes) {
-      if (!this.getUnits(lang).unitTypes.hasOwnProperty(i)) {
-        continue;
-      }
-
-      if (
-        input.indexOf(this.getUnits(lang).unitTypes[i]) > -1 ||
-        this.getUnits(lang).unitTypes[i].indexOf(input) > -1
-      ) {
-        return this.getUnits(lang).unitTypes[i];
-      }
-    }
-
-    return this.getUnits(lang).defaulUnitType;
   }
 
   /**
@@ -139,47 +72,5 @@ export default class ConversionsUtils {
     }
 
     return out;
-  }
-
-  /**
-   * Converts a given amount in a given unit to grams.
-   * @param unit The source unit.
-   * @param type The ingredient type.
-   * @param val The source value.
-   */
-  public static convertToGrams(
-    lang: string,
-    unit: string,
-    type: string,
-    val: number | string
-  ): number {
-    unit = unit.replace(/\W/g, "");
-
-    unit = (this.getUnits(lang).pluralsMap as any)[unit] || unit;
-
-    if (ConversionsUtils.isMilliliters(lang, unit)) {
-      return Number(val);
-    }
-
-    if (ConversionsUtils.isCentiliters(lang, unit)) {
-      return Number(val) * 10;
-    }
-
-    if (ConversionsUtils.isLiters(lang, unit)) {
-      return Number(val) * 1000;
-    }
-    if (ConversionsUtils.isKiloGrams(lang, unit)) {
-      return Number(val) * 1000;
-    }
-
-    if (!(this.getUnits(lang).unitMeasuresInGrams as any)[unit]) {
-      return -1;
-    }
-
-    if (!(this.getUnits(lang).unitMeasuresInGrams as any)[unit][type]) {
-      type = this.getUnits(lang).defaulUnitType;
-    }
-
-    return +(this.getUnits(lang).unitMeasuresInGrams as any)[unit][type] * +val; //
   }
 }

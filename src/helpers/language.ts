@@ -1,5 +1,4 @@
 import _ from "lodash";
-import { LANGUAGES } from "../";
 
 export default class LanguageUtils {
   /**
