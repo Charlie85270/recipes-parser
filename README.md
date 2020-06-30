@@ -1,12 +1,6 @@
 # recipes-parser.js
 
-![coverage](https://raw.githubusercontent.com/Charlie85270/recipes-parser/5653f5424d15d5e8ddce3d09c35170f41f0ea062/coverage/badge-branches.svg "coverage")
-
-![coverage](https://raw.githubusercontent.com/Charlie85270/recipes-parser/5653f5424d15d5e8ddce3d09c35170f41f0ea062/coverage/badge-functions.svg "coverage")
-
-![coverage](https://raw.githubusercontent.com/Charlie85270/recipes-parser/5653f5424d15d5e8ddce3d09c35170f41f0ea062/coverage/badge-lines.svg "coverage")
-
-![coverage](https://raw.githubusercontent.com/Charlie85270/recipes-parser/5653f5424d15d5e8ddce3d09c35170f41f0ea062/coverage/badge-statements.svg "coverage")
+![coverage](https://raw.githubusercontent.com/Charlie85270/recipes-parser/5653f5424d15d5e8ddce3d09c35170f41f0ea062/coverage/badge-branches.svg "coverage") ![coverage](https://raw.githubusercontent.com/Charlie85270/recipes-parser/5653f5424d15d5e8ddce3d09c35170f41f0ea062/coverage/badge-functions.svg "coverage") ![coverage](https://raw.githubusercontent.com/Charlie85270/recipes-parser/5653f5424d15d5e8ddce3d09c35170f41f0ea062/coverage/badge-lines.svg "coverage") ![coverage](https://raw.githubusercontent.com/Charlie85270/recipes-parser/5653f5424d15d5e8ddce3d09c35170f41f0ea062/coverage/badge-statements.svg "coverage")
 
 #### Parse recipes instructions (string text entry) and exctract aliments, units and quantity.
 
