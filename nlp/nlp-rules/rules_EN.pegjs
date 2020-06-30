@@ -78,6 +78,7 @@ mixed_number
   = $(integer preposition fraction)
   / $(integer space fraction)
   / $(integer unit fraction)
+  / $(integer space word_number)
 
 word_number
   = 'one'i
@@ -95,6 +96,9 @@ word_number
   / 'thirteen'i
   / 'a'i
   / 'an'i
+  / 'half'i
+  / 'quarter'i
+  / 'third'i
 
 couple
   = $(article? ' '? 'couple'i)
@@ -119,7 +123,9 @@ unit
 generic
   = cup
   / fluid_ounce
+  / glass
   / bottle
+  / bowl
   / gallon
   / ounce
   / pint
@@ -127,12 +133,25 @@ generic
   / quart
   / tablespoon
   / teaspoon
+ 
 
 cup
   = 'cups'i
   / 'cup'i
+  / 'cps'i
+  / 'cps.'i
   / 'c.'i
   / 'c'i
+
+glass
+  = 'glass'i
+  / 'glas'i
+  / 'gls'i
+
+bowl
+  = 'bowl'i
+  / 'bowls'i
+  / 'bwl'i
 
 bottle
   = 'bottles'i
@@ -190,7 +209,9 @@ tablespoon
   / 'tbsp.'i
   / 'tbsp'i
   / 'tbs.'i
+  / 'tbl.'i
   / 'tbs'i
+  / 'tbl'i
   / 'T.'
   / 'T'
 
@@ -239,8 +260,10 @@ centiliter
 milligram
   = 'milligrams'i
   / 'milligram'i
-  / 'mg.'i
+  / 'mlg.'i
+  / 'mlg'i
   / 'mg'i
+   / 'mg.'i
 
 milliliter
   = 'milliliters'i
@@ -259,6 +282,7 @@ imprecise_unit
   / splash
   / sprig
   / sheet
+  / bag
 
 dash
   = 'dashes'i
@@ -267,14 +291,19 @@ dash
 handful
   = 'handfuls'i
   / 'handful'i
-
+  / 'hdful'i
+  / 'hdfl'i
+  / 'hdf'i
 pinch
   = 'pinches'i
   / 'pinch'i
+  / 'pinche'i
+  / 'pch'i
 
 touch
   = 'touches'i
   / 'touch'i
+   / 'tch'i
 
 slice
   = 'slices'i
@@ -283,6 +312,7 @@ slice
 packet
   = 'packets'i
   / 'packet'i
+  / 'pck'i
 
 envelope
   = 'envelopes'i
@@ -300,3 +330,10 @@ sheet
   = 'sheets'i
   / 'sheet'i
 
+bag
+  = 'bags'i
+  / 'bag'i
+
+dose
+  = 'doses'i
+  / 'dose'i

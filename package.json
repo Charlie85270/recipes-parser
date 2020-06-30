@@ -1,6 +1,6 @@
 {
   "name": "recipes-parser",
-  "version": "1.3.6",
+  "version": "1.3.7",
   "description": "A library to parse recipes (string text entry) and exctract aliments, units and weights",
   "main": "lib/src/index.js",
   "files": [
@@ -9,6 +9,8 @@
   "types": "lib/src/index.d.ts",
   "scripts": {
     "test": "jest --config jestconfig.json",
+    "test:coverage": "npm test -- --coverage",
+    "test:badges": "npm run test:coverage  && jest-coverage-badges",
     "build": "tsc && npm run copynlp",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "lint": "tslint -p tsconfig.json",
@@ -31,9 +33,11 @@
     "email": "rabiller.charlie@gmail.com"
   },
   "keywords": [
+    "parser",
+    "recipes",
+    "ingredients",
     "food",
     "nutrition",
-    "nutrition facts",
     "health",
     "cooking"
   ],
@@ -55,6 +59,7 @@
   },
   "dependencies": {
     "fuse.js": "^3.4.6",
+    "jest-coverage-badges": "^1.1.2",
     "lodash": "^4.17.15",
     "pegjs": "^0.10.0",
     "reflect-metadata": "^0.1.13"

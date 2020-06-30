@@ -11,9 +11,9 @@ test("Test recipe instructions - simple string (NLP)", async () => {
   expect(result).not.toBeUndefined();
 
   if (result[0] && result[0].result) {
-    expect(result[0].result.precise.ingredient).toEqual("riz");
-    expect(result[0].result.precise.unit).toEqual("cuillereasoupe");
-    expect(result[0].result.precise.amount).toEqual(0.5);
+    expect(result[0].result.ingredient).toEqual("riz");
+    expect(result[0].result.unit).toEqual("tablespoon");
+    expect(result[0].result.amount).toEqual(0.5);
   } else {
     throw new Error("fail");
   }
@@ -27,9 +27,9 @@ test("Test recipe instructions - simple string (NLP)", async () => {
   );
   expect(result).not.toBeUndefined();
   if (result[0] && result[0].result) {
-    expect(result[0].result.precise.ingredient).toEqual("riz");
-    expect(result[0].result.precise.unit).toEqual("cuillereacafe");
-    expect(result[0].result.precise.amount).toEqual(0.5);
+    expect(result[0].result.ingredient).toEqual("riz");
+    expect(result[0].result.unit).toEqual("teaspoon");
+    expect(result[0].result.amount).toEqual(0.5);
   } else {
     throw new Error("fail");
   }
@@ -43,9 +43,9 @@ test("Test recipe instructions - simple string (NLP)", async () => {
   );
   expect(result).not.toBeUndefined();
   if (result[0] && result[0].result) {
-    expect(result[0].result.precise.ingredient).toEqual("lait");
-    expect(result[0].result.precise.unit).toEqual("cl");
-    expect(result[0].result.precise.amount).toEqual(70);
+    expect(result[0].result.ingredient).toEqual("lait");
+    expect(result[0].result.unit).toEqual("cl");
+    expect(result[0].result.amount).toEqual(70);
   } else {
     throw new Error("fail");
   }
@@ -58,9 +58,9 @@ test("Test recipe instructions - simple string (NLP)", async () => {
   );
   expect(result).not.toBeUndefined();
   if (result[0] && result[0].result) {
-    expect(result[0].result.precise.ingredient).toEqual("riz");
-    expect(result[0].result.precise.unit).toEqual("g");
-    expect(result[0].result.precise.amount).toEqual(500);
+    expect(result[0].result.ingredient).toEqual("riz");
+    expect(result[0].result.unit).toEqual("g");
+    expect(result[0].result.amount).toEqual(500);
   } else {
     throw new Error("fail");
   }
@@ -74,9 +74,9 @@ test("Test recipe instructions - simple string (NLP)", async () => {
   );
   expect(result).not.toBeUndefined();
   if (result[0] && result[0].result) {
-    expect(result[0].result.precise.ingredient).toEqual("filet de poulet");
-    expect(result[0].result.precise.unit).toEqual("kg");
-    expect(result[0].result.precise.amount).toEqual(1);
+    expect(result[0].result.ingredient).toEqual("filet de poulet");
+    expect(result[0].result.unit).toEqual("kg");
+    expect(result[0].result.amount).toEqual(1);
   } else {
     throw new Error("fail");
   }
@@ -90,9 +90,9 @@ test("Test recipe instructions - simple string (NLP)", async () => {
   );
   expect(result).not.toBeUndefined();
   if (result[0] && result[0].result) {
-    expect(result[0].result.precise.ingredient).toEqual("moules");
-    expect(result[0].result.precise.unit).toEqual("l");
-    expect(result[0].result.precise.amount).toEqual(1);
+    expect(result[0].result.ingredient).toEqual("moules");
+    expect(result[0].result.unit).toEqual("l");
+    expect(result[0].result.amount).toEqual(1);
   } else {
     throw new Error("fail");
   }
@@ -106,8 +106,8 @@ test("Test recipe instructions - simple string (NLP)", async () => {
   );
   expect(result).not.toBeUndefined();
   if (result[0] && result[0].result) {
-    expect(result[0].result.precise.ingredient).toEqual("poivrons");
-    expect(result[0].result.precise.amount).toEqual(2);
+    expect(result[0].result.ingredient).toEqual("poivrons");
+    expect(result[0].result.amount).toEqual(2);
   } else {
     throw new Error("fail");
   }
@@ -121,8 +121,8 @@ test("Test recipe instructions - simple string (NLP)", async () => {
   );
   expect(result).not.toBeUndefined();
   if (result[0] && result[0].result) {
-    expect(result[0].result.precise.ingredient).toEqual("pommes de terre");
-    expect(result[0].result.precise.amount).toEqual(3);
+    expect(result[0].result.ingredient).toEqual("pommes de terre");
+    expect(result[0].result.amount).toEqual(3);
   } else {
     throw new Error("fail");
   }
@@ -136,9 +136,9 @@ test("Test recipe instructions - simple string (NLP)", async () => {
   );
   expect(result).not.toBeUndefined();
   if (result[0] && result[0].result) {
-    expect(result[0].result.precise.ingredient).toEqual("lardons");
-    expect(result[0].result.precise.unit).toEqual("g");
-    expect(result[0].result.precise.amount).toEqual(40);
+    expect(result[0].result.ingredient).toEqual("lardons");
+    expect(result[0].result.unit).toEqual("g");
+    expect(result[0].result.amount).toEqual(40);
   } else {
     throw new Error("fail");
   }
@@ -152,9 +152,9 @@ test("Test recipe instructions - simple string (NLP)", async () => {
   );
   expect(result).not.toBeUndefined();
   if (result[0] && result[0].result) {
-    expect(result[0].result.precise.ingredient).toEqual("gruyère");
-    expect(result[0].result.precise.unit).toEqual("g");
-    expect(result[0].result.precise.amount).toEqual(30);
+    expect(result[0].result.ingredient).toEqual("gruyère");
+    expect(result[0].result.unit).toEqual("g");
+    expect(result[0].result.amount).toEqual(30);
   } else {
     throw new Error("fail");
   }
@@ -168,9 +168,9 @@ test("Test recipe instructions - simple string (NLP)", async () => {
   );
   expect(result).not.toBeUndefined();
   if (result[0] && result[0].result) {
-    expect(result[0].result.precise.ingredient).toEqual("oeufs");
+    expect(result[0].result.ingredient).toEqual("oeufs");
 
-    expect(result[0].result.precise.amount).toEqual(3);
+    expect(result[0].result.amount).toEqual(3);
   } else {
     throw new Error("fail");
   }
@@ -184,9 +184,9 @@ test("Test recipe instructions - simple string (NLP)", async () => {
   );
   expect(result).not.toBeUndefined();
   if (result[0] && result[0].result) {
-    expect(result[0].result.precise.ingredient).toEqual("poivre");
-    expect(result[0].result.precise.unit).toEqual("bouteille");
-    expect(result[0].result.precise.amount).toEqual(1);
+    expect(result[0].result.ingredient).toEqual("poivre");
+    expect(result[0].result.unit).toEqual("bottle");
+    expect(result[0].result.amount).toEqual(1);
   } else {
     throw new Error("fail");
   }
@@ -200,9 +200,9 @@ test("Test recipe instructions - simple string (NLP)", async () => {
   );
   expect(result).not.toBeUndefined();
   if (result[0] && result[0].result) {
-    expect(result[0].result.precise.ingredient).toEqual("poivre");
-    expect(result[0].result.precise.unit).toEqual("poignee");
-    expect(result[0].result.precise.amount).toEqual(3);
+    expect(result[0].result.ingredient).toEqual("poivre");
+    expect(result[0].result.unit).toEqual("handful");
+    expect(result[0].result.amount).toEqual(3);
   } else {
     throw new Error("fail");
   }
@@ -216,24 +216,24 @@ test("Test recipe instructions - simple string (NLP)", async () => {
   );
   expect(result).not.toBeUndefined();
   if (result[0] && result[0].result) {
-    expect(result[0].result.precise.ingredient).toEqual("poivre");
-    expect(result[0].result.precise.unit).toEqual("sachet");
-    expect(result[0].result.precise.amount).toEqual(3);
+    expect(result[0].result.ingredient).toEqual("poivre");
+    expect(result[0].result.unit).toEqual("bag");
+    expect(result[0].result.amount).toEqual(3);
   } else {
     throw new Error("fail");
   }
 });
 test("Test recipe instructions - simple string (NLP)", async () => {
-  const recipe: string[] = ["100 g de pépites de chocolat"];
+  const recipe: string[] = ["100 grammes de pépites de chocolat"];
   const result: IRecipeResult[] = await lib.getIngredientsFromText(
     recipe,
     true
   );
   expect(result).not.toBeUndefined();
   if (result[0] && result[0].result) {
-    expect(result[0].result.precise.ingredient).toEqual("pépites de chocolat");
-    expect(result[0].result.precise.unit).toEqual("g");
-    expect(result[0].result.precise.amount).toEqual(100);
+    expect(result[0].result.ingredient).toEqual("pépites de chocolat");
+    expect(result[0].result.unit).toEqual("g");
+    expect(result[0].result.amount).toEqual(100);
   } else {
     throw new Error("fail");
   }
@@ -247,9 +247,9 @@ test("Test recipe instructions - simple string (NLP)", async () => {
   );
   expect(result).not.toBeUndefined();
   if (result[0] && result[0].result) {
-    expect(result[0].result.precise.ingredient).toEqual("levure");
-    expect(result[0].result.precise.unit).toEqual("cuillereacafe");
-    expect(result[0].result.precise.amount).toEqual(1);
+    expect(result[0].result.ingredient).toEqual("levure");
+    expect(result[0].result.unit).toEqual("teaspoon");
+    expect(result[0].result.amount).toEqual(1);
   } else {
     throw new Error("fail");
   }
@@ -263,9 +263,9 @@ test("Test recipe instructions - simple string (NLP)", async () => {
   );
   expect(result).not.toBeUndefined();
   if (result[0] && result[0].result) {
-    expect(result[0].result.precise.ingredient).toEqual("levure");
-    expect(result[0].result.precise.unit).toEqual("sachet");
-    expect(result[0].result.precise.amount).toEqual(0.5);
+    expect(result[0].result.ingredient).toEqual("levure");
+    expect(result[0].result.unit).toEqual("bag");
+    expect(result[0].result.amount).toEqual(0.5);
   } else {
     throw new Error("fail");
   }
@@ -279,9 +279,9 @@ test("Test recipe instructions - simple string (NLP)", async () => {
   );
   expect(result).not.toBeUndefined();
   if (result[0] && result[0].result) {
-    expect(result[0].result.precise.ingredient).toEqual("safran");
-    expect(result[0].result.precise.unit).toEqual("dose");
-    expect(result[0].result.precise.amount).toEqual(3);
+    expect(result[0].result.ingredient).toEqual("safran");
+    expect(result[0].result.unit).toEqual("dose");
+    expect(result[0].result.amount).toEqual(3);
   } else {
     throw new Error("fail");
   }
@@ -297,11 +297,11 @@ test("Test recipe instructions - simple string (NLP)", async () => {
   );
   expect(result).not.toBeUndefined();
   if (result[0] && result[0].result) {
-    expect(result[0].result.precise.ingredient).toEqual(
+    expect(result[0].result.ingredient).toEqual(
       "à 2 doses de safran(ou de préparation spéciale paëlla)"
     );
-    expect(result[0].result.precise.unit).toEqual(undefined);
-    expect(result[0].result.precise.amount).toEqual(1);
+    expect(result[0].result.unit).toEqual(undefined);
+    expect(result[0].result.amount).toEqual(1);
   } else {
     throw new Error("fail");
   }
@@ -315,9 +315,9 @@ test("Test recipe instructions - simple string (NLP)", async () => {
   );
   expect(result).not.toBeUndefined();
   if (result[0] && result[0].result) {
-    expect(result[0].result.precise.ingredient).toEqual("chorizo");
-    expect(result[0].result.precise.unit).toEqual(undefined);
-    expect(result[0].result.precise.amount).toEqual(0.25);
+    expect(result[0].result.ingredient).toEqual("chorizo");
+    expect(result[0].result.unit).toEqual(undefined);
+    expect(result[0].result.amount).toEqual(0.25);
   } else {
     throw new Error("fail");
   }
@@ -330,9 +330,9 @@ test("Test recipe instructions - simple string (NLP)", async () => {
   );
   expect(result).not.toBeUndefined();
   if (result[0] && result[0].result) {
-    expect(result[0].result.precise.ingredient).toEqual("graines de chia");
-    expect(result[0].result.precise.unit).toEqual("cuillereasoupe");
-    expect(result[0].result.precise.amount).toEqual(2);
+    expect(result[0].result.ingredient).toEqual("graines de chia");
+    expect(result[0].result.unit).toEqual("tablespoon");
+    expect(result[0].result.amount).toEqual(2);
   } else {
     throw new Error("fail");
   }
@@ -346,11 +346,59 @@ test("Test recipe instructions - simple string (NLP)", async () => {
   );
   expect(result).not.toBeUndefined();
   if (result[0] && result[0].result) {
-    expect(result[0].result.precise.ingredient).toEqual(
+    expect(result[0].result.ingredient).toEqual(
       "d’huile de coco + pour le moule"
     );
-    expect(result[0].result.precise.unit).toEqual("cuillereasoupe");
-    expect(result[0].result.precise.amount).toEqual(3);
+    expect(result[0].result.unit).toEqual("tablespoon");
+    expect(result[0].result.amount).toEqual(3);
+  } else {
+    throw new Error("fail");
+  }
+});
+
+test("Test recipe instructions - simple string (NLP)", async () => {
+  const recipe: string[] = ["1 tranche de citron"];
+  const result: IRecipeResult[] = await lib.getIngredientsFromText(
+    recipe,
+    true
+  );
+  expect(result).not.toBeUndefined();
+  if (result[0] && result[0].result) {
+    expect(result[0].result.ingredient).toEqual("citron");
+    expect(result[0].result.unit).toEqual("slice");
+    expect(result[0].result.amount).toEqual(1);
+  } else {
+    throw new Error("fail");
+  }
+});
+
+test("Test recipe instructions - simple string (NLP)", async () => {
+  const recipe: string[] = ["1 zeste d’huile de coco"];
+  const result: IRecipeResult[] = await lib.getIngredientsFromText(
+    recipe,
+    true
+  );
+  expect(result).not.toBeUndefined();
+  if (result[0] && result[0].result) {
+    expect(result[0].result.ingredient).toEqual("d’huile de coco");
+    expect(result[0].result.unit).toEqual("zest");
+    expect(result[0].result.amount).toEqual(1);
+  } else {
+    throw new Error("fail");
+  }
+});
+
+test("Test recipe instructions - simple string (NLP)", async () => {
+  const recipe: string[] = ["1/2 lit. de fond de veau en poudre"];
+  const result: IRecipeResult[] = await lib.getIngredientsFromText(
+    recipe,
+    true
+  );
+  expect(result).not.toBeUndefined();
+  if (result[0] && result[0].result) {
+    expect(result[0].result.ingredient).toEqual("fond de veau en poudre");
+    expect(result[0].result.unit).toEqual("l");
+    expect(result[0].result.amount).toEqual(0.5);
   } else {
     throw new Error("fail");
   }
@@ -364,11 +412,57 @@ test("Test recipe instructions - simple string (NLP)", async () => {
   );
   expect(result).not.toBeUndefined();
   if (result[0] && result[0].result) {
-    expect(result[0].result.precise.ingredient).toEqual(
-      "Fond de veau en poudre"
-    );
-    expect(result[0].result.precise.unit).toEqual("cuillereacafe");
-    expect(result[0].result.precise.amount).toEqual(2.5);
+    expect(result[0].result.ingredient).toEqual("Fond de veau en poudre");
+    expect(result[0].result.unit).toEqual("teaspoon");
+    expect(result[0].result.amount).toEqual(2.5);
+  } else {
+    throw new Error("fail");
+  }
+});
+
+test("Test recipe instructions - simple string (NLP)", async () => {
+  const recipe: string[] = ["3 demi poulet"];
+  const result: IRecipeResult[] = await lib.getIngredientsFromText(
+    recipe,
+    true
+  );
+  expect(result).not.toBeUndefined();
+  if (result[0] && result[0].result) {
+    expect(result[0].result.ingredient).toEqual("poulet");
+
+    expect(result[0].result.amount).toEqual(1.5);
+  } else {
+    throw new Error("fail");
+  }
+});
+
+test("Test recipe instructions - simple string (NLP)", async () => {
+  const recipe: string[] = ["2-3 poulet"];
+  const result: IRecipeResult[] = await lib.getIngredientsFromText(
+    recipe,
+    true
+  );
+  expect(result).not.toBeUndefined();
+  if (result[0] && result[0].result) {
+    expect(result[0].result.ingredient).toEqual("poulet");
+
+    expect(result[0].result.amount).toEqual(2.5);
+  } else {
+    throw new Error("fail");
+  }
+});
+
+test("Test recipe instructions - simple string (NLP)", async () => {
+  const recipe: string[] = ["2 sachet de poulet"];
+  const result: IRecipeResult[] = await lib.getIngredientsFromText(
+    recipe,
+    false
+  );
+  expect(result).not.toBeUndefined();
+  if (result[0] && result[0].result) {
+    expect(result[0].result.ingredient).toEqual("poulet");
+    expect(result[0].result.unit).toEqual("sachet");
+    expect(result[0].result.amount).toEqual(2);
   } else {
     throw new Error("fail");
   }
@@ -380,7 +474,5 @@ test("Test recipe error", async () => {
     recipe,
     true
   );
-  expect(
-    result[0].unknown["cette phrase ne fonctionnera pas"]
-  ).not.toBeUndefined();
+  expect(result[0].unknown.reasons).not.toBeUndefined();
 });

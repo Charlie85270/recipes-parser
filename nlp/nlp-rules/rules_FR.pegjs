@@ -86,10 +86,18 @@ mixed_number
   / $(integer preposition integer)
   / $(integer space fraction)
   / $(integer unit fraction)
+  / $(integer space word_number)
 
 word_number
   = 'une demie'i
   /'un demi'i
+  /'un tier'i
+  /'demi'i
+  /'tier'i
+  /'quart'i
+  /'moitiées'i
+  /'moitié'i
+  /'moitiée'i
   /'une'i
   / 'un'i
   / 'deux'i
@@ -120,6 +128,9 @@ few
 
 fraction
   = $(integer [/] integer)
+
+multiplication
+  = $(integer word_number)
 
 integer
   = digits:[0-9]+ { return digits.join(''); }

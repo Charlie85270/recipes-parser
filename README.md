@@ -1,12 +1,23 @@
 # recipes-parser.js
 
-#### A library to parse recipes (string text entry) and exctract aliments, units and weights in EN and FR.
+#### Parse recipes instructions (string text entry) and exctract aliments, units and quantity.
 
-#
+- Based on NLP (natural language processing) and [pegsjs](https://github.com/pegjs/pegjs "pegsjs") library
+- Available in EN and FR
 
-recipes-parser.js is a library to extract aliments, units and weights from a text phrase in. The library processing natural language strings and retrieving information from two langage (FR and EN)
+#### Exemple
 
-Example EN: '1/2 kilogram of chicken'
+Simple number detection : **1 kilogram of chicken**
+
+```json
+result : {
+  "ingredient": "chicken",
+  "unit": "kg",
+  "amount": 1,
+}
+```
+
+Fraction number detection : **1/2 kilogram of chicken**
 
 ```json
 result : {
@@ -16,52 +27,125 @@ result : {
 }
 ```
 
-Example FR: 'une demie cuillère à soupe de riz'
+Approximation number detection : **2-3 teaspoons of sugar**
 
 ```json
 result : {
-  "ingredient": "riz",
-  "unit": "cuillereasoupe",
-  "amount": 0.5,
+  "ingredient": "sugar",
+  "unit": "teaspoon",
+  "amount": 2.5,
 }
 ```
 
-Example FR: '70cl d'huile d'olive'
+word number detection : **Seven teaspoons of sugar**
 
 ```json
 result : {
-  "ingredient": "huile d'olive",
-  "unit": "cl",
-  "amount": 70,
+  "ingredient": "sugar",
+  "unit": "teaspoon",
+  "amount": 7,
+}
+```
 
+word and fraction number detection : **5 1/2 liter of milk**
+
+```json
+result : {
+  "ingredient": "milk",
+  "unit": 'liter'',
+  "amount": 2.5,
+}
+```
+
+word and number detection : **5 quarter of orange**
+
+```json
+result : {
+  "ingredient": "orange",
+  "unit": undefined,
+  "amount": 1.25,
+}
+```
+
+Abbreviation units detection : **5 tbsp of milk**
+
+```json
+result : {
+  "ingredient": "orange",
+  "unit": "tablespoon",
+  "amount": 1.25,
 }
 ```
 
 ---
 
-# API
+### Possible retourned key unit (keys are always return in EN)
+
+- tablespoon, teaspoon
+- mg, g, kg
+- ml, cl, dcl, l
+- cup
+- glass
+- bowl
+- bottle
+- gallon
+- ounce
+- pint
+- pound
+- quart
+- pinch
+- handful
+- zest
+- slice
+- touch
+- packet
+- envelope
+- splash
+- sprig
+- sheet
+- bag
+- dose
+- undefined (if not found)
+
+# USE
 
 ## Returns the list of ingredients ,weights and units from a given list of instruction.
 
 ```
 import RecipesParser from 'recipes-parser';
+//for FR Detection : const parser = new RecipesParser('FR');
 const parser = new RecipesParser('FR');
-const results = parser.getIngredientsFromText(['70 grammes de chocolat']);
+const results = parser.getIngredientsFromText(['3 cl. fresh raspberries'], true);
 ```
 
-\_@param instructions -- The list of instructions. Supports NLP queries (recipeStr)
+@param instructions -- The list of instructions. Supports NLP queries (recipeStr)
+@param matchedKey -- If true return the matched key, if false return the matched text
 
 **getIngredientsFromText**(instructions: string[], returnUnitKey?: boolean )
 
-Note : set returnUnitKey to true when you want the unit key matched instead of value matched (FR)
-Ex: 70 grammes de chocolat
+**return object : ** Array of IRecipeResult;
 
-```json
-result : {
-  "ingredient": "chocolat",
-  "unit": "g",
-  "amount": 70,
+```javascript
+IRecipeResult {
+  result?: { // the result when matched OK
+    instruction: string; // the instruction parsed
+    unit: string; // the unit matched
+    amount: number; ; // the quantity calculated
+    ingredient: string; // the quantity matched
+  };
+  unknown: {  // the result matched KO
+    instruction?: string;   // the instructon parsed
+    reasons?: UNKNOWN_REASONS[]; // the array of reasons why matched is KO
+  };
 }
+
+enum UNKNOWN_REASONS {
+  PARSING = "mismatch during parsing",
+  PARSING_AMOUNT = "unknown amount",
+  PARSING_UNIT = "unknown unit",
+  NO_ENTRY = "unavailable ingredient"
+}
+
 ```
 
 ## License

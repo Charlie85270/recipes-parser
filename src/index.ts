@@ -7,19 +7,14 @@ import ConversionsUtils from "./helpers/conversions";
 
 export interface IRecipeResult {
   result?: {
-    precise: {
-      container: string;
-      unit: number;
-      amount: string;
-      ingredient: string;
-    };
+    instruction: string;
+    unit: number;
+    amount: string;
+    ingredient: string;
   };
   unknown: {
-    [label: string]: {
-      instruction: string;
-      parsed?: string[];
-      reasons?: UNKNOWN_REASONS[];
-    };
+    instruction?: string;
+    reasons?: UNKNOWN_REASONS[];
   };
 }
 
@@ -37,7 +32,7 @@ export enum UNKNOWN_REASONS {
   PARSING = "mismatch during parsing",
   PARSING_AMOUNT = "unknown amount",
   PARSING_UNIT = "unknown unit",
-  NO_ENTRY = "unavailable food"
+  NO_ENTRY = "unavailable ingredient"
 }
 
 export interface IInputIngredient {
@@ -47,8 +42,6 @@ export interface IInputIngredient {
 }
 
 export default class RecipesParser {
-  constructor(private langage: "FR" | "EN") {}
-
   private nlpParser: peg.Parser = peg.generate(
     fs.readFileSync(
       path.join(__dirname, `/../nlp/nlp-rules/rules_${this.langage}.pegjs`),
@@ -57,6 +50,7 @@ export default class RecipesParser {
       }
     )
   );
+  constructor(private langage: "FR" | "EN") {}
 
   public getIngredientsFromText(
     recipeInstructions: string[],
@@ -85,9 +79,8 @@ export default class RecipesParser {
           unknownReasons.push(UNKNOWN_REASONS.PARSING_AMOUNT);
         }
 
-        output.unknown[instruction] = {
+        output.unknown = {
           instruction,
-          parsed: parts,
           reasons: unknownReasons
         };
         return output;
@@ -103,12 +96,10 @@ export default class RecipesParser {
         }
 
         output.result = {
-          precise: {
-            container: parts.container,
-            unit: parts.unit,
-            amount: parts.amount,
-            ingredient: parts.ingredient
-          }
+          instruction,
+          unit: parts.unit,
+          amount: parts.amount,
+          ingredient: parts.ingredient
         };
         return output;
       }
