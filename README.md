@@ -54,7 +54,7 @@ word and fraction number detection : **5 1/2 liter of milk**
 ```json
 result : {
   "ingredient": "milk",
-  "unit": 'liter'',
+  "unit": "liter",
   "amount": 2.5,
 }
 ```
@@ -64,7 +64,7 @@ word and number detection : **5 quarter of orange**
 ```json
 result : {
   "ingredient": "orange",
-  "unit": undefined,
+  "unit": "undefined",
   "amount": 1.25,
 }
 ```
