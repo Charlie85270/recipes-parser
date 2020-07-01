@@ -1,19 +1,4 @@
 {
-  "unitTypes": [
-    "liquid",
-    "flour",
-    "potato starch",
-    "potato flour",
-    "sugar",
-    "rice",
-    "fine salt",
-    "cooking salt",
-    "butter",
-    "powder",
-    "sodium bicarbonate",
-    "baking soda"
-  ],
-  "defaulUnitType": "liquid",
   "nominalUnits": {
     "liters": ["l", "l.", "lt", "lt.", "liter", "liters"],
     "milliliters": ["ml", "ml.", "milliliter", "milliliters"],

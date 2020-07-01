@@ -2,10 +2,9 @@ start
   = ingredient_full
 
 ingredient_full
-  = amount:amount? (ws+)? container:container? (ws+)?  unit:unit? (ws+)? imprecise_unit:imprecise_unit? (ws+)? preposition:preposition? (ws+)? ingredient:ingredient? [\n]? {
+  = amount:amount? (ws+)?  unit:unit? (ws+)? imprecise_unit:imprecise_unit? (ws+)? preposition:preposition? (ws+)? ingredient:ingredient? [\n]? {
     var result = {
       amount: amount,
-      container: container,
       ingredient: ingredient,
       unit: unit,
       imprecise_unit: imprecise_unit
@@ -29,16 +28,6 @@ amount
   / few
   / couple
 
-container
-  = container_wrapper_start? (ws+)? amount:amount (ws+)? unit:unit (ws+)? container_wrapper_end? {
-    return { amount: amount, unit: unit };
-  }
-
-container_wrapper_start
-  = "(" / "{" / "[" / "<"
-
-container_wrapper_end
-  = ")" / "}" / "]" / ">"
 
 ws
   = " "

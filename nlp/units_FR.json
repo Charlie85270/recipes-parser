@@ -1,19 +1,4 @@
 {
-  "unitTypes": [
-    "liquide",
-    "farine",
-    "purée de pomme de terre",
-    "farine de pomme de terre",
-    "sucre",
-    "riz",
-    "sel fin",
-    "gros sel",
-    "beurre",
-    "poudre",
-    "bicarbonate de sodium",
-    "bicarbonate de soude"
-  ],
-  "defaulUnitType": "liquide",
   "nominalUnits": {
     "liters": ["l", "l.", "lt", "lt.", "litre", "litres"],
     "milliliters": ["ml", "ml.", "millilitre", "millilitres"],
