@@ -476,3 +476,19 @@ test("Test recipe error", async () => {
   );
   expect(result[0].unknown.reasons).not.toBeUndefined();
 });
+
+test("Test recipe instructions - simple string (NLP)", async () => {
+  const recipe: string[] = ["3 c. à s. d'huile d'olive"];
+  const result: IRecipeResult[] = await lib.getIngredientsFromText(
+    recipe,
+    true
+  );
+  expect(result).not.toBeUndefined();
+  if (result[0] && result[0].result) {
+    expect(result[0].result.ingredient).toEqual("d'huile d'olive");
+    expect(result[0].result.unit).toEqual("tablespoon");
+    expect(result[0].result.amount).toEqual(3);
+  } else {
+    throw new Error("fail");
+  }
+});

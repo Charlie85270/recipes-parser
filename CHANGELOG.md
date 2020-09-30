@@ -13,3 +13,7 @@
 - Add Support of word and fraction number detection (5 1/2 liter of milk)
 
 - Add Support word and number detection detection (5 quarter of oragne)
+
+## v1.3.8
+
+- Add support for 'c. à s.' and 'c. à s.' notation (teaspoon and tablespoon)

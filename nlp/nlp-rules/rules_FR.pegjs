@@ -227,6 +227,7 @@ cuillereasoupe
   /'c. à soupe'i
   /'c a soupe'i
   /' ca soupe'i
+  / 'c. à s.'i
   /'c.à s.'i
   / 'cas.'i
   / 'c à s'i
@@ -249,6 +250,7 @@ cuillereacafe
   / 'c. a café'i
   / 'c.à café'i
   / 'c.a café'i
+  / 'c. à c.'i
   / 'c.a cafe'i
   / 'c.à café'i
   /'c. à cafe'i
