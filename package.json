@@ -18,7 +18,7 @@
     "prepublishOnly": "npm test && npm run lint",
     "preversion": "npm run lint",
     "postversion": "git push && git push --tags",
-    "copynlp": "copyfiles -u 1 nlp/nlp-rules/** lib/nlp",
+    "copynlp": "copyfiles -u 1 nlp/en/** lib/nlp/en && copyfiles -u 1 nlp/fr/** lib/nlp/fr",
     "start": "npm run build && node lib/src/index.js"
   },
   "author": "Charlie Rabiller <rabiller.charlie@gmail.com>",
