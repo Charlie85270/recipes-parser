@@ -1,2 +1,6 @@
+.DS_Store
 node_modules
 lib/*
+coverage/coverage-summary.json
+coverage/lcov-report/
+coverage/lcov.info

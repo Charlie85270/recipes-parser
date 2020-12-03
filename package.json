@@ -12,12 +12,11 @@
     "test:coverage": "npm test -- --coverage",
     "test:badges": "npm run test:coverage  && jest-coverage-badges",
     "build": "tsc && npm run copynlp",
-    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "format": "prettier --write 'src/**/*.{js,ts}'",
     "lint": "tslint -p tsconfig.json",
     "prepare": "npm run build",
     "prepublishOnly": "npm test && npm run lint",
     "preversion": "npm run lint",
-    "version": "npm run format && git add -A src",
     "postversion": "git push && git push --tags",
     "copynlp": "copyfiles -u 1 nlp/nlp-rules/** lib/nlp",
     "start": "npm run build && node lib/src/index.js"
@@ -50,7 +49,9 @@
     "@types/pegjs": "^0.10.1",
     "@types/validator": "^12.0.1",
     "copyfiles": "^2.1.1",
+    "husky": "^4.3.0",
     "jest": "^24.9.0",
+    "lint-staged": "^10.5.2",
     "prettier": "^1.19.1",
     "ts-jest": "^24.2.0",
     "tslint": "^5.20.1",
@@ -63,5 +64,13 @@
     "lodash": "^4.17.15",
     "pegjs": "^0.10.0",
     "reflect-metadata": "^0.1.13"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,js}": "prettier --write"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
