@@ -1,5 +1,5 @@
-export const globalUnit = {
-  cup: [
+{
+  "cup": [
     "coupes",
     "coupe",
     "cp.",
@@ -11,9 +11,9 @@ export const globalUnit = {
     "c.",
     "c"
   ],
-  glass: ["tasses", "tasse", "tass à café.", "glass", "glas", "gls"],
-  bowl: ["bols", "bol", "bol à soupe.", "bowl", "bowls", "bwl"],
-  bottle: [
+  "glass": ["tasses", "tasse", "tass à café.", "glass", "glas", "gls"],
+  "bowl": ["bols", "bol", "bol à soupe.", "bowl", "bowls", "bwl"],
+  "bottle": [
     "bouteilles",
     "bouteille",
     "btl.",
@@ -23,12 +23,12 @@ export const globalUnit = {
     "btl.",
     "btl"
   ],
-  gallon: ["gallons", "gallon", "gal.", "gal"],
-  ounce: ["onces", "once", "oz.", "oz", "oc.", "oc", "ounces", "ounce"],
-  pint: ["pintes", "pinte", "pt.", "pt", "pints", "pint"],
-  pound: ["pounds", "pound", "lbs.", "lbs", "lb.", "lb"],
-  quart: ["quarts", "quart", "qts.", "qts", "qt.", "qt"],
-  tablespoon: [
+  "gallon": ["gallons", "gallon", "gal.", "gal"],
+  "ounce": ["onces", "once", "oz.", "oz", "oc.", "oc", "ounces", "ounce"],
+  "pint": ["pintes", "pinte", "pt.", "pt", "pints", "pint"],
+  "pound": ["pounds", "pound", "lbs.", "lbs", "lb.", "lb"],
+  "quart": ["quarts", "quart", "qts.", "qts", "qt.", "qt"],
+  "tablespoon": [
     "cuilleres a soupe",
     "cuillère à soupe",
     "cuillères à soupe",
@@ -63,7 +63,7 @@ export const globalUnit = {
     "tbsp",
     "tbsp"
   ],
-  teaspoon: [
+  "teaspoon": [
     "cuilleres a cafe",
     "cuillere a cafe",
     "cuilleres a cafe",
@@ -98,7 +98,7 @@ export const globalUnit = {
     "t.",
     "t"
   ],
-  kg: [
+  "kg": [
     "kilogrammes",
     "kilogramme",
     "kilos",
@@ -108,11 +108,11 @@ export const globalUnit = {
     "kilograms",
     "kilogram"
   ],
-  g: ["grammes", "gramme", "gr.", "gr", "g.", "g", "grams", "gram"],
-  l: ["littres", "littre", "lit.", "l.", "l", "L", "liters", "liter"],
-  dcl: ["decilittres", "decilittre", "dclit.", "dcl.", "dl"],
-  cl: ["centilitres", "centilitre", "cl.", "cl", "centiliters", "centiliter"],
-  mg: [
+  "g": ["grammes", "gramme", "gr.", "gr", "g.", "g", "grams", "gram"],
+  "l": ["littres", "littre", "lit.", "l.", "l", "L", "liters", "liter"],
+  "dcl": ["decilittres", "decilittre", "dclit.", "dcl.", "dl"],
+  "cl": ["centilitres", "centilitre", "cl.", "cl", "centiliters", "centiliter"],
+  "mg": [
     "milligrammes",
     "milligrams",
     "milligram",
@@ -122,7 +122,7 @@ export const globalUnit = {
     "mg.",
     "mg"
   ],
-  ml: [
+  "ml": [
     "millilitres",
     "milliliters",
     "milliliter",
@@ -131,8 +131,8 @@ export const globalUnit = {
     "ml.",
     "ml"
   ],
-  zest: ["élan", "zeste", "mordant", "elan", "zest", "zst"],
-  handful: [
+  "zest": ["élan", "zeste", "mordant", "elan", "zest", "zst"],
+  "handful": [
     "poignées",
     "poignée",
     "poignée",
@@ -145,7 +145,7 @@ export const globalUnit = {
     "hdfl",
     "hdf"
   ],
-  pinch: [
+  "pinch": [
     "pincées",
     "pincée",
     "pincee",
@@ -156,11 +156,11 @@ export const globalUnit = {
     "pinche",
     "pch"
   ],
-  touch: ["touches", "touche", "touch", "tch"],
-  slice: ["tranches", "tranche", "slices", "slice"],
-  packet: ["paquets", "paquets", "packets", "packet", "pck"],
-  envelope: ["enveloppes", "enveloppe", "envelopes", "envelope"],
-  splash: [
+  "touch": ["touches", "touche", "touch", "tch"],
+  "slice": ["tranches", "tranche", "slices", "slice"],
+  "packet": ["paquets", "paquets", "packets", "packet", "pck"],
+  "envelope": ["enveloppes", "enveloppe", "envelopes", "envelope"],
+  "splash": [
     "éclaboussures",
     "eclaboussures",
     "éclats",
@@ -170,8 +170,8 @@ export const globalUnit = {
     "splashes",
     "splash"
   ],
-  sprig: ["brins", "brin", "sprigs", "sprig"],
-  sheet: ["feuilles", "feuille", "sheets", "sheet"],
-  bag: ["sachets", "sachet", "bags", "bag"],
-  dose: ["doses", "dose"]
-};
+  "sprig": ["brins", "brin", "sprigs", "sprig"],
+  "sheet": ["feuilles", "feuille", "sheets", "sheet"],
+  "bag": ["sachets", "sachet", "bags", "bag"],
+  "dose": ["doses", "dose"]
+}

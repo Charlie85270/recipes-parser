@@ -1,6 +1,17 @@
+import fs from "fs";
+import * as path from "path";
 import RecipesParser, { IRecipeResult } from "..";
+import units from "../../nlp/fr/units.json";
+import globalUnit from "../../nlp/fr/global_unit.json";
 
-const lib = new RecipesParser("FR");
+const rules = fs.readFileSync(
+  path.join(__dirname, `../../nlp/fr/rules.pegjs`),
+  {
+    encoding: "utf8",
+  }
+);
+
+const lib = new RecipesParser(rules, units, globalUnit);
 
 test("Test recipe instructions - simple string (NLP)", async () => {
   const recipe: string[] = ["une demie cuillère à soupe de riz"];
@@ -289,7 +300,7 @@ test("Test recipe instructions - simple string (NLP)", async () => {
 
 test("Test recipe instructions - simple string (NLP)", async () => {
   const recipe: string[] = [
-    "1 à 2 doses de safran(ou de préparation spéciale paëlla)"
+    "1 à 2 doses de safran(ou de préparation spéciale paëlla)",
   ];
   const result: IRecipeResult[] = await lib.getIngredientsFromText(
     recipe,
