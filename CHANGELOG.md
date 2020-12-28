@@ -17,3 +17,8 @@
 ## v1.3.8
 
 - Add support for 'c. à s.' and 'c. à s.' notation (teaspoon and tablespoon)
+
+
+## v1.3.9
+
+- Add Multilangage support with conf file
