@@ -7,7 +7,6 @@
     "grams": ["gr", "gr.", "g", "g.", "gram", "grams"],
     "kilograms": ["kgr", "kgr.", "kg", "kg.", "kilogram", "kilograms"]
   },
-
   "wordNumbers": {
     "couple": 2,
     "pair": 2,

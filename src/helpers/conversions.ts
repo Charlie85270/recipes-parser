@@ -1,33 +1,28 @@
 import _ from "lodash";
 
-import { LANGUAGES } from "../";
-import UnitsEn from "../../nlp/units_EN.json";
-import UnitsFr from "../../nlp/units_FR.json";
-import { globalUnit } from "./keys";
+export interface IUnits {
+  wordNumbers?: any;
+  nominalUnits?: any;
+}
+
+export type IGlobalUnit = any;
 
 export default class ConversionsUtils {
-  /**
-   * Returns a list of units for the configured language.
-   */
-  public static getUnits(lang: string): any {
-    switch (lang) {
-      case LANGUAGES.EN:
-        return UnitsEn;
-      case LANGUAGES.FR:
-        return UnitsFr;
-    }
-  }
+  constructor(private units: IUnits, private globalUnit: IGlobalUnit) {}
 
   /**
    * Returns the key who has match the result
    */
-  public static getUnitKey(unit: string): string | undefined {
+  public getUnitKey(unit: string): string | undefined {
     let returnUnit = unit;
 
-    for (let i = 0; i < Object.keys(globalUnit).length; i++) {
-      if (Object.values(globalUnit)[i].includes(unit)) {
-        returnUnit = Object.keys(globalUnit)[i];
-        i = Object.keys(globalUnit).length;
+    const globalUnitKeys: string[] = Object.keys(this.globalUnit);
+    const globalUnitValues: string[] = Object.values(this.globalUnit);
+
+    for (let i = 0; i < globalUnitKeys.length; i++) {
+      if (globalUnitValues[i].includes(unit)) {
+        returnUnit = globalUnitKeys[i];
+        i = globalUnitKeys.length;
       }
     }
 
@@ -38,12 +33,12 @@ export default class ConversionsUtils {
    * Normalizes a given amount.
    * @param val The amount to be normalized.
    */
-  public static normalizeAmount(lang: string, val: number | string): number {
+  public normalizeAmount(val: number | string): number {
     let out;
 
     // Normalizing numeric word to number
-    if (this.getUnits(lang).wordNumbers.hasOwnProperty(val)) {
-      out = (this.getUnits(lang).wordNumbers as any)[val];
+    if (this.units.wordNumbers.hasOwnProperty(val)) {
+      out = (this.units.wordNumbers as any)[val];
     }
 
     //  Normalizing and multiply word and number amounts (3 demi oeufs, 3 demi poulet, ...)
@@ -54,11 +49,11 @@ export default class ConversionsUtils {
       if (
         matchesMultiple[1] &&
         matchesMultiple[2] &&
-        this.getUnits(lang).wordNumbers.hasOwnProperty(matchesMultiple[2])
+        this.units.wordNumbers.hasOwnProperty(matchesMultiple[2])
       ) {
         out =
           Number(matchesMultiple[1]) *
-          (this.getUnits(lang).wordNumbers as any)[matchesMultiple[2]];
+          (this.units.wordNumbers as any)[matchesMultiple[2]];
       }
     }
 

@@ -1,6 +1,17 @@
+import fs from "fs";
+import * as path from "path";
 import RecipesParser, { IRecipeResult } from "..";
+import units from "../../nlp/en/units.json";
+import globalUnit from "../../nlp/en/global_unit.json";
 
-const lib = new RecipesParser("EN");
+const rules = fs.readFileSync(
+  path.join(__dirname, `../../nlp/en/rules.pegjs`),
+  {
+    encoding: "utf8",
+  }
+);
+
+const lib = new RecipesParser(rules, units, globalUnit);
 
 test("Get ingredient in recipe - simple string (NLP)", async () => {
   const recipe: string[] = ["20gr of sugar"];
