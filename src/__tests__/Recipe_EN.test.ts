@@ -198,3 +198,24 @@ test("Get nutrients in recipe - simple string (NLP)", async () => {
     throw new Error("fail");
   }
 });
+
+
+test("Get nutrients in multi step recipe - simple string (NLP)", async () => {
+  const recipe: string[] = ["2 1/2 liter milk", "5 quarter of orange"];
+  const result: IRecipeResult[] = await lib.getIngredientsFromText(
+    recipe,
+    true
+  );
+  expect(result).not.toBeUndefined();
+
+  if (result[0] && result[0].result && result[1] && result[1].result) {
+    expect(result[0].result.ingredient).toEqual("milk");
+    expect(result[0].result.unit).toEqual("l");
+    expect(result[0].result.amount).toEqual(1);
+
+    expect(result[1].result.ingredient).toEqual("orange");
+    expect(result[1].result.amount).toEqual(1.25);
+  } else {
+    throw new Error("fail");
+  }
+});

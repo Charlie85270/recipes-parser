@@ -5,8 +5,8 @@ import ConversionsUtils, { IUnits } from "./helpers/conversions";
 export interface IRecipeResult {
   result?: {
     instruction: string;
-    unit: number;
-    amount: string;
+    unit: string;
+    amount: number;
     ingredient: string;
   };
   unknown: {
@@ -51,12 +51,13 @@ export default class RecipesParser {
     recipeInstructions: string[],
     returnUnitKey?: boolean
   ): IRecipeResult[] {
-    const output: IRecipeResult = {
-      unknown: {},
-    };
-
     // Parse and normalize the ingredients
     return _.map(recipeInstructions, (instruction: string) => {
+
+      const output: IRecipeResult = {
+        unknown: {},
+      };
+
       const recipeStr = instruction
         .replace("½", "1/2")
         .replace("⅓", "1/3")
