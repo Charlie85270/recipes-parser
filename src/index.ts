@@ -5,8 +5,8 @@ import ConversionsUtils, { IUnits } from "./helpers/conversions";
 export interface IRecipeResult {
   result?: {
     instruction: string;
-    unit: number;
-    amount: string;
+    unit: string;
+    amount: number;
     ingredient: string;
   };
   unknown: {
